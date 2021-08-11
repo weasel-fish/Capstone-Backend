@@ -14,4 +14,6 @@ class User < ApplicationRecord
     has_many :outings, through: :user_outings
 
     has_many :alerts
+
+    validates :username, :address, uniqueness: true
 end

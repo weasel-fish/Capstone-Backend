@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+    def index
+        render json: session
+    end
 
     def me
         if session[:user_id]

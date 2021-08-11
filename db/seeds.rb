@@ -25,7 +25,7 @@ User.reset_pk_sequence
 WishListAnimal.destroy_all
 WishListAnimal.reset_pk_sequence
 
-User.create(username: "Kyle")
+User.create(username: "Kyle", password: '123')
 User.create(username: "Jane")
 User.create(username: "Bob")
 User.create(username: "Sally")
