@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Alert.destroy_all
+Alert.reset_pk_sequence
+Animal.destroy_all
+Animal.reset_pk_sequence
+Follow.destroy_all
+Follow.reset_pk_sequence
+OutingInvite.destroy_all
+OutingInvite.reset_pk_sequence
+Outing.destroy_all
+Outing.reset_pk_sequence
+Sighting.destroy_all
+Sighting.reset_pk_sequence
+UserOuting.destroy_all
+UserOuting.reset_pk_sequence
+User.destroy_all
+User.reset_pk_sequence
+WishListAnimal.destroy_all
+WishListAnimal.reset_pk_sequence
+
+User.create(username: "Kyle")
+User.create(username: "Jane")
+User.create(username: "Bob")
+User.create(username: "Sally")
+
+Follow.create(follower_id: 1, followee_id: 2)
+Follow.create(follower_id: 1, followee_id: 3)
+Follow.create(follower_id: 4, followee_id: 1)
