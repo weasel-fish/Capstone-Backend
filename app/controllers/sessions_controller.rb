@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     def me
         if session[:user_id]
             user = User.find_by(id: session[:user_id])
-            render json: user, status: :ok
+            render json: user, serializer: UserInfoSerializer, status: :ok
         else
             head :no_content
         end
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
-            render json: user, except: :password_digest, status: :created
+            render json: user, serializer: UserInfoSerializer, status: :created
         else
             render json: {error: "Incorrect username and/or password"}, status: :unauthorized
         end
@@ -31,4 +31,5 @@ class SessionsController < ApplicationController
             render json: {error: "Uh-oh, something went wrong!"}, status: :unauthorized
         end
     end
+
 end
