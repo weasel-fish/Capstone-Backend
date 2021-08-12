@@ -5,7 +5,22 @@ class OutingInvitesController < ApplicationController
         if invite.valid?
             render json: invite, status: :created
         else
-            render json: {errors: invite.errrors.full_messages}, status: :unprocessable_entity
+            render json: {error: 'You have already invited them!'}, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        invite = OutingInvite.find_by(id: params[:id])
+        invite.destroy
+        head :no_content
+    end
+
+    def show
+        invites = OutingInvite.where(invitee_id: params[:id])
+        if invites
+            render json: invites
+        else
+            head :no_content
         end
     end
 

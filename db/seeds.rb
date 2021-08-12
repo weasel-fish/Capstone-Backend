@@ -40,3 +40,11 @@ Animal.create(common_name: 'Banana Slug', scientific_name: 'Ariolimax californic
 Animal.create(common_name: 'Hummingbird Hawk-Moth', scientific_name: 'Macroglossum stellatarum', description: 'Named for its similarity to hummingbirds, they feed on the nectar of tube-shaped flowers using their long proboscis while hovering in the air')
 Animal.create(common_name: 'Spicebush Swallowtail', scientific_name: 'Papilio troilus', description: 'Adults are primarily black/brown in color, with a trademark green-blue (male) or bright blue (female) splotch in the shape of a half moon on the hindwings.')
 Animal.create(common_name: 'Ensign Wasp', scientific_name: 'multiple', description: 'These wasps wave their little butts in the air! They also lay their eggs in cockroaches.')
+
+Outing.create(name: 'Bike Trail Walk', location: 'Woods Hole/Falmouth Bike Trail', date: '08/12/2021', description: "I'm taking a leisurely walk along the nearby bike path.")
+Outing.create(name: 'Panther Mountain Hike', location: 'Panther Mountain, NY', date: '06/23/2021', description: 'Day trip to Panther Mountain with some friends.')
+Outing.create(name: 'Morning at the Beach', location: 'Bill Baggs National Park', date: '7/29/2021', description: 'Natalia and I hang out at the beach.')
+
+UserOuting.create(user_id: 1, outing_id: 1)
+UserOuting.create(user_id: 1, outing_id: 2)
+UserOuting.create(user_id: 1, outing_id: 3)
