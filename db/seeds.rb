@@ -25,11 +25,12 @@ User.reset_pk_sequence
 WishListAnimal.destroy_all
 WishListAnimal.reset_pk_sequence
 
-User.create(username: "Kyle", password: '123')
-User.create(username: "Jane")
-User.create(username: "Bob")
-User.create(username: "Sally")
+User.create(username: "Kyle", address: 'kyle@gmail.com', password: '123')
+User.create(username: "Jane", address: 'jane@gmail.com', password: '123')
+User.create(username: "Bob", address: 'bob@gmail.com', password: '123')
+User.create(username: "Sally", address: 'sally@gmail.com', password: '123')
 
 Follow.create(follower_id: 1, followee_id: 2)
 Follow.create(follower_id: 1, followee_id: 3)
 Follow.create(follower_id: 4, followee_id: 1)
+Follow.create(follower_id: 4, followee_id: 2)

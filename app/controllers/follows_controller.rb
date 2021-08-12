@@ -7,10 +7,11 @@ class FollowsController < ApplicationController
             render json: follow, status: :created
         else
             render json: {errors: follow.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     def destroy
-        follow = Follow.find_by(id: params[:id])
+        follow = Follow.find_by(follow_params)
         follow.destroy
         head :no_content
     end
