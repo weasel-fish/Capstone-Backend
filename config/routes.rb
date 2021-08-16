@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   post '/accept', to: 'user_outings#accept'
   delete '/leave/:user_id/:outing_id', to: 'user_outings#destroy'
   post '/sightings/with-new', to: 'sightings#create_with_new_animal'
+  post '/wishlist/with-new', to: 'wish_list_animals#create_with_new_animal'
+  get '/stats', to: 'sightings#get_stats'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

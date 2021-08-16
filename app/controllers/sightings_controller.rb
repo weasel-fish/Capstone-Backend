@@ -16,6 +16,7 @@ class SightingsController < ApplicationController
     def create
         sighting = Sighting.create(sighting_params)
         if sighting.valid?
+            generate_alerts(sighting_params[:animal_id], sighting.id)
             render json: sighting, status: :created
         else
             render json: {errors: sighting.errors.full_messages}, status: :unprocessable_entity
@@ -36,6 +37,13 @@ class SightingsController < ApplicationController
             render json: {errors: animal.errors.full_messages}, status: :unprocessable_entity
         end
 
+    end
+    
+    def generate_alerts(animal_id, sighting_id)
+        wishes = WishListAnimal.where(animal_id: animal_id)
+        wishes.each do |wish|
+           alert = Alert.create(sighting_id: sighting_id, user_id: wish[:user_id])
+        end
     end
 
     def update
@@ -58,6 +66,23 @@ class SightingsController < ApplicationController
         head :no_content
     end
 
+    def get_stats
+        top_wishes = WishListAnimal.all.group(:animal_id).order('animal_id ASC').limit(3).count(:animal_id)
+        wishes = []
+        top_wishes.keys.each do |key|
+            animal = Animal.find_by(id: key)
+            wishes << animal
+        end
+
+        top_sightings = Sighting.all.group(:animal_id).order('animal_id ASC').limit(3).count(:animal_id)
+        sightings = []
+        top_sightings.keys.each do |key|
+            animal = Animal.find_by(id: key)
+            sightings << animal
+        end
+        render json: {wishes: wishes, sightings: sightings}
+    end
+
     private
 
     def sighting_params
@@ -65,6 +90,6 @@ class SightingsController < ApplicationController
     end
 
     def sighting_with_new_params
-        params.permit(:animal_id, :outing_id, :environment, :weather_conditions, :notes, :common_name, :scientific_name, :description)
+        params.permit(:outing_id, :environment, :weather_conditions, :notes, :common_name, :scientific_name, :description)
     end
 end

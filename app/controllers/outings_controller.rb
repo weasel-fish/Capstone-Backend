@@ -15,10 +15,11 @@ class OutingsController < ApplicationController
 
     def create
         outing = Outing.create(outing_params)
-        if outing.valid?
+        attendance = UserOuting.create(user_id: session[:user_id], outing_id: outing.id)
+        if outing.valid? && attendance.valid?
             render json: outing, status: :created
         else
-            render json: {errors: outing.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: [*attendance.errors.full_messages, *outing.errors.full_messages]}, status: :unprocessable_entity
         end
     end
 

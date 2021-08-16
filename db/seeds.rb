@@ -47,6 +47,20 @@ Outing.create(name: 'Morning at the Beach', location: 'Bill Baggs National Park'
 
 UserOuting.create(user_id: 1, outing_id: 1)
 UserOuting.create(user_id: 1, outing_id: 2)
-UserOuting.create(user_id: 1, outing_id: 3)
+UserOuting.create(user_id: 2, outing_id: 3)
 
+Sighting.create(animal_id: 3, outing_id:3)
 Sighting.create(animal_id: 1, outing_id: 1)
+
+WishListAnimal.create(user_id: 1, animal_id: 1)
+WishListAnimal.create(user_id: 2, animal_id: 1)
+WishListAnimal.create(user_id: 3, animal_id: 1)
+WishListAnimal.create(user_id: 4, animal_id: 1)
+WishListAnimal.create(user_id: 1, animal_id: 2)
+WishListAnimal.create(user_id: 2, animal_id: 2)
+WishListAnimal.create(user_id: 3, animal_id: 2)
+WishListAnimal.create(user_id: 4, animal_id: 3)
+WishListAnimal.create(user_id: 1, animal_id: 3)
+WishListAnimal.create(user_id: 1, animal_id: 1)
+WishListAnimal.create(user_id: 1, animal_id: 4)
+WishListAnimal.create(user_id: 1, animal_id: 5)

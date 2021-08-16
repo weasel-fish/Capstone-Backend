@@ -4,4 +4,7 @@ class Outing < ApplicationRecord
     has_many :sightings
     has_many :animals, through: :sightings
     has_many :outing_invites
+
+    validates :date, presence: true
+    validates :name, presence: true
 end
