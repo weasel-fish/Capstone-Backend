@@ -22,7 +22,7 @@ class UserOutingsController < ApplicationController
     end
 
     def destroy
-        user_outing = UserOuting.find_by(id: params[:id])
+        user_outing = UserOuting.find_by(user_outing_params)
         user_outing.destroy
         head :no_content
     end

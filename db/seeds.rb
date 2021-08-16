@@ -48,3 +48,5 @@ Outing.create(name: 'Morning at the Beach', location: 'Bill Baggs National Park'
 UserOuting.create(user_id: 1, outing_id: 1)
 UserOuting.create(user_id: 1, outing_id: 2)
 UserOuting.create(user_id: 1, outing_id: 3)
+
+Sighting.create(animal_id: 1, outing_id: 1)
