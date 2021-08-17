@@ -29,7 +29,11 @@ class SightingsController < ApplicationController
         if animal.valid?
             sighting = Sighting.create(animal_id: animal.id, outing_id: sighting_with_new_params[:outing_id], environment: sighting_with_new_params[:environment], weather_conditions: sighting_with_new_params[:weather_conditions], notes: sighting_with_new_params[:notes])
             if sighting.valid?
-                render json: sighting, status: :created
+                render json: {
+                    sighting: ActiveModelSerializers::SerializableResource.new(sighting, serializer: SightingSerializer),
+                    animal: ActiveModelSerializers::SerializableResource.new(animal, serializer: AnimalSerializer)
+                }
+                # render json: sighting, status: :created
             else
                 render json: {errors: sighting.errors.full_messages}, status: :unprocessable_entity
             end

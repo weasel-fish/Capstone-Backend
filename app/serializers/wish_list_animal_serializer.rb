@@ -4,6 +4,6 @@ class WishListAnimalSerializer < ActiveModel::Serializer
 
   def animal
     animal = object.animal
-    animal
+    {common_name: animal[:common_name], scientific_name: animal[:scientific_name], description: animal[:description]}
   end
 end

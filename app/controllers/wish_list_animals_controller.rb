@@ -28,7 +28,11 @@ class WishListAnimalsController < ApplicationController
         if animal.valid?
             wish = WishListAnimal.create(animal_id: animal.id, user_id: wish_with_new_params[:user_id])
             if wish.valid?
-                render json: wish, status: :created
+                render json: {
+                    wish: ActiveModelSerializers::SerializableResource.new(wish, serializer: WishListAnimalSerializer),
+                    animal: ActiveModelSerializers::SerializableResource.new(animal, serializer: AnimalSerializer)
+                }
+                # render json: wish, status: :created
             else
                 render json: {errors: wish.errors.full_messages}, status: :unprocessable_entity
             end

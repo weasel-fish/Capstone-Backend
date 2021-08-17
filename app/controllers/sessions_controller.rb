@@ -35,7 +35,11 @@ class SessionsController < ApplicationController
     def front_load
         animals = Animal.all
         users = User.all
-        render json: {users: users, animals: animals}, status: :ok
+        # render json: {users: users, animals: animals}, status: :ok
+        render json: {
+            users: ActiveModelSerializers::SerializableResource.new(users, each_serializer: UserSerializer),
+            animals: ActiveModelSerializers::SerializableResource.new(animals, each_serializer: AnimalSerializer)
+        }
     end
 
 end
