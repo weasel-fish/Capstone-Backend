@@ -16,8 +16,18 @@ class UsersController < ApplicationController
     def create
         user = User.create(user_params)
         if user.valid?
-            session[:user_id] = user.id
-            render json: user, serializer: UserSignupSerializer, status: :created
+            if params[:no_avatar]
+                user.avatar.attach(
+                    io: File.open('./public/avatars/user.png'),
+                    filename: 'user.png',
+                    content_type: 'application/png'
+                )
+                session[:user_id] = user.id
+                render json: user, serializer: CurrentUserSerializer, status: :created
+            else
+                session[:user_id] = user.id
+                render json: user, serializer: UserSignupSerializer, status: :created
+            end
         else
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
         end
