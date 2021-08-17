@@ -25,10 +25,32 @@ User.reset_pk_sequence
 WishListAnimal.destroy_all
 WishListAnimal.reset_pk_sequence
 
-User.create(username: "Kyle", address: 'kyle@gmail.com', password: '123')
-User.create(username: "Jane", address: 'jane@gmail.com', password: '123')
-User.create(username: "Bob", address: 'bob@gmail.com', password: '123')
-User.create(username: "Sally", address: 'sally@gmail.com', password: '123')
+kyle = User.create(username: "Kyle", address: 'kyle@gmail.com', password: '123')
+jane = User.create(username: "Jane", address: 'jane@gmail.com', password: '123')
+bob = User.create(username: "Bob", address: 'bob@gmail.com', password: '123')
+billy = User.create(username: "Billy", address: 'sally@gmail.com', password: '123')
+
+kyle.avatar.attach(
+    io: File.open('./public/avatars/profile.png'),
+    filename: 'profile.png',
+    content_type: 'application/png'
+)
+jane.avatar.attach(
+    io: File.open('./public/avatars/woman.png'),
+    filename: 'woman.png',
+    content_type: 'application/png'
+)
+bob.avatar.attach(
+    io: File.open('./public/avatars/man.png'),
+    filename: 'man.png',
+    content_type: 'application/png'
+)
+billy.avatar.attach(
+    io: File.open('./public/avatars/boy.png'),
+    filename: 'boy.png',
+    content_type: 'application/png'
+)
+
 
 Follow.create(follower_id: 1, followee_id: 2)
 Follow.create(follower_id: 1, followee_id: 3)

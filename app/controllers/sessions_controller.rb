@@ -14,9 +14,13 @@ class SessionsController < ApplicationController
     
     def create
         user = User.find_by(username: params[:username])
-
+        # avatar = rails_blob_path(user.avatar)
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
+            # render json: {
+            #     user: ActiveModelSerializers::SerializableResource.new(user, serializer: CurrentUserSerializer),
+            #     avatar: avatar
+            # }, status: :created
             render json: user, serializer: CurrentUserSerializer, status: :created
         else
             render json: {error: "Incorrect username and/or password"}, status: :unauthorized

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_one_attached :avatar
 
     has_many :outing_invites, foreign_key: :invitee_id
     has_many :wish_list_animals

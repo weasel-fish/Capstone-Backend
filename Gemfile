@@ -41,3 +41,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'activerecord-reset-pk-sequence'
 gem "active_model_serializers", "~> 0.10.12"
+gem 'image_processing'
