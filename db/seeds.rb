@@ -26,16 +26,16 @@ WishListAnimal.destroy_all
 WishListAnimal.reset_pk_sequence
 
 kyle = User.create(username: "Kyle", address: 'kyle@gmail.com', password: '123')
-jane = User.create(username: "Jane", address: 'jane@gmail.com', password: '123')
-bob = User.create(username: "Bob", address: 'bob@gmail.com', password: '123')
-billy = User.create(username: "Billy", address: 'sally@gmail.com', password: '123')
+bf = User.create(username: "bugfan43", address: 'bugfan@gmail.com', password: '123')
+bob = User.create(username: "bobthebugman", address: 'bob@gmail.com', password: '123')
+billy = User.create(username: "Billy", address: 'billy@gmail.com', password: '123')
 
 kyle.avatar.attach(
     io: File.open('./public/avatars/profile.png'),
     filename: 'profile.png',
     content_type: 'application/png'
 )
-jane.avatar.attach(
+bf.avatar.attach(
     io: File.open('./public/avatars/woman.png'),
     filename: 'woman.png',
     content_type: 'application/png'

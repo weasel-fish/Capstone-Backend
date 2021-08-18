@@ -7,6 +7,8 @@ class UserSignupSerializer < ActiveModel::Serializer
     has_many :alerts
     has_many :wishes
   
+  #PRE-AVATAR serializer
+
     def wishes
       wishes = object.wish_list_animals
       wishes

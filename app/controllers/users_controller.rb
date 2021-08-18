@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     def create
         user = User.create(user_params)
         if user.valid?
-            if params[:no_avatar]
+            if params[:no_avatar]   #Default avatar
                 user.avatar.attach(
                     io: File.open('./public/avatars/user.png'),
                     filename: 'user.png',
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
                 )
                 session[:user_id] = user.id
                 render json: user, serializer: CurrentUserSerializer, status: :created
-            else
+            else                #Custom Avatar
                 session[:user_id] = user.id
                 render json: user, serializer: UserSignupSerializer, status: :created
             end
