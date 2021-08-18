@@ -7,7 +7,8 @@ class UserSignupSerializer < ActiveModel::Serializer
     has_many :alerts
     has_many :wishes
   
-  #PRE-AVATAR serializer
+  #PRE-AVATAR serializer, WAIT DOES THIS EVEN NEED ANYTHING OTHER THAN AN ID?
+  #OBSOLETE?
 
     def wishes
       wishes = object.wish_list_animals

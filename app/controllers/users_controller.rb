@@ -26,7 +26,8 @@ class UsersController < ApplicationController
                 render json: user, serializer: CurrentUserSerializer, status: :created
             else                #Custom Avatar
                 session[:user_id] = user.id
-                render json: user, serializer: UserSignupSerializer, status: :created
+                render json: user, status: :created
+                # render json: user, serializer: UserSignupSerializer, status: :created
             end
         else
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity

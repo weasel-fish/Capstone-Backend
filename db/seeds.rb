@@ -86,6 +86,3 @@ WishListAnimal.create(user_id: 1, animal_id: 3)
 WishListAnimal.create(user_id: 1, animal_id: 1)
 WishListAnimal.create(user_id: 1, animal_id: 4)
 WishListAnimal.create(user_id: 1, animal_id: 5)
-
-
-#test

@@ -13,11 +13,20 @@ class SightingsController < ApplicationController
         end
     end
 
-    def create
+    def create  #existing animal
         sighting = Sighting.create(sighting_params)
         if sighting.valid?
             generate_alerts(sighting_params[:animal_id], sighting.id)
-            render json: sighting, status: :created
+            if params[:no_image]   #Default image
+                sighting.image.attach(
+                    io: File.open('./public/avatars/user.png'),
+                    filename: 'user.png',
+                    content_type: 'application/png'
+                )
+                render json: sighting, status: :created
+            else    #custom image
+                render json: sighting, serializer: SightingPreImageSerializer, status: :created
+            end
         else
             render json: {errors: sighting.errors.full_messages}, status: :unprocessable_entity
         end
@@ -62,6 +71,12 @@ class SightingsController < ApplicationController
         else
             render json: {error: 'Sighting not found.'}, status: :not_found
         end
+    end
+
+    def add_image
+        sighting = Sighting.find_by(id: params[:id])
+        sighting.update(image: params[:image])
+        render json: sighting, status: :created
     end
 
     def destroy
