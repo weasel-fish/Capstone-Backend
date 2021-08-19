@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get '/stats', to: 'sightings#get_stats'
   post 'rails/active_storage/direct_uploads', to: 'direct_uploads#create'
   put '/sightings/:id/add_image', to: 'sightings#add_image'
+  put '/outings/:id/add_image', to: 'outings#add_image'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
