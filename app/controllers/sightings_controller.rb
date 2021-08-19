@@ -100,16 +100,16 @@ class SightingsController < ApplicationController
     def get_stats
         top_wishes = WishListAnimal.all.group(:animal_id).order('animal_id ASC').limit(3).count(:animal_id)
         wishes = []
-        top_wishes.keys.each do |key|
+        top_wishes.each do |key, val|
             animal = Animal.find_by(id: key)
-            wishes << animal
+            wishes << {animal: animal, val: val}
         end
 
         top_sightings = Sighting.all.group(:animal_id).order('animal_id ASC').limit(3).count(:animal_id)
         sightings = []
-        top_sightings.keys.each do |key|
+        top_sightings.each do |key, val|
             animal = Animal.find_by(id: key)
-            sightings << animal
+            sightings << {animal: animal, val: val}
         end
         render json: {wishes: wishes, sightings: sightings}
     end

@@ -36,7 +36,13 @@ class OutingsController < ApplicationController
     end
 
     def update
-
+        outing = Outing.find_by(id: params[:id])
+        outing.update(outing_params)
+        if outing.valid?
+            render json: outing, status: :created
+        else
+            render json: {errors: outing.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     def add_image
