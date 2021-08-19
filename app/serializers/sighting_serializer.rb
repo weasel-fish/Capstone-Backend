@@ -15,6 +15,10 @@ class SightingSerializer < ActiveModel::Serializer
   def animal
     animal = Animal.find_by(id: object[:animal_id])
     # animal
-    animal[:common_name]
+    {
+      common_name: animal.common_name,
+      scientific_name: animal.scientific_name,
+      description: animal.description
+    }
   end
 end
