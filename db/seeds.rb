@@ -71,8 +71,13 @@ UserOuting.create(user_id: 1, outing_id: 1)
 UserOuting.create(user_id: 1, outing_id: 2)
 UserOuting.create(user_id: 2, outing_id: 3)
 
-Sighting.create(animal_id: 3, outing_id:3)
-Sighting.create(animal_id: 1, outing_id: 1)
+sighting1 = Sighting.create(animal_id: 1, outing_id:1)
+
+sighting1.image.attach(
+    io: File.open('./public/avatars/profile.png'),
+    filename: 'profile.png',
+    content_type: 'application/png'
+)
 
 WishListAnimal.create(user_id: 1, animal_id: 1)
 WishListAnimal.create(user_id: 2, animal_id: 1)
