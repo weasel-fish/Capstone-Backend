@@ -9,7 +9,7 @@ class CurrentUserSerializer < ActiveModel::Serializer
   attribute :avatar
 
   def avatar
-    variant = object.avatar.variant(resize: "100x100")
+    variant = object.avatar.variant(resize: "150x150")
     return rails_representation_url(variant, only_path: true)
     # rails_blob_path(object.avatar, only_path: true)
   end

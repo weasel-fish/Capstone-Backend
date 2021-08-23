@@ -40,8 +40,14 @@ class UsersController < ApplicationController
         render json: user, serializer: CurrentUserSerializer, status: :created
     end
 
+    def update_email
+        user = User.find_by(id: params[:id])
+        user.update(address: params[:address])
+        render json: user, serializer: CurrentUserSerializer, status: :created
+    end
+
     def destroy
-        user = User.find_by(id: session[:user_id])
+        user = User.find_by(id: params[:id])
         session.delete :user_id
         user.destroy
         head :no_content
