@@ -98,18 +98,20 @@ class SightingsController < ApplicationController
     end
 
     def get_stats
-        top_wishes = WishListAnimal.all.group(:animal_id).order('animal_id ASC').limit(3).count(:animal_id)
+        wish_nums = WishListAnimal.all.group(:animal_id).count(:animal_id)
+        top_wishes = wish_nums.sort_by {|k, v| -v} [0..2]
         wishes = []
-        top_wishes.each do |key, val|
-            animal = Animal.find_by(id: key)
-            wishes << {animal: animal, val: val}
+        top_wishes.each do |pair|
+            animal = Animal.find_by(id: pair[0])
+            wishes << {animal: animal, val: pair[1]}
         end
 
-        top_sightings = Sighting.all.group(:animal_id).order('animal_id ASC').limit(3).count(:animal_id)
+        sighting_nums = Sighting.all.group(:animal_id).count(:animal_id)
+        top_sightings = sighting_nums.sort_by {|k, v| -v} [0..2]
         sightings = []
-        top_sightings.each do |key, val|
-            animal = Animal.find_by(id: key)
-            sightings << {animal: animal, val: val}
+        top_sightings.each do |pair|
+            animal = Animal.find_by(id: pair[0])
+            sightings << {animal: animal, val: pair[1]}
         end
         render json: {wishes: wishes, sightings: sightings}
     end

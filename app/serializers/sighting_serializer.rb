@@ -7,7 +7,7 @@ class SightingSerializer < ActiveModel::Serializer
   attribute :image
 
   def image
-    variant = object.image.variant(resize: "100x100")
+    variant = object.image.variant(resize: "150x150")
     return rails_representation_url(variant, only_path: true)
     # rails_blob_path(object.avatar, only_path: true)
   end
