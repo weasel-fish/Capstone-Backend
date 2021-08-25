@@ -20,9 +20,9 @@ class OutingsController < ApplicationController
 
             if params[:no_image]   #Default avatar
                 outing.image.attach(
-                    io: File.open('./public/avatars/user.png'),
-                    filename: 'user.png',
-                    content_type: 'application/png'
+                    io: File.open('./public/outing_images/mountain.jpg'),
+                    filename: 'mountain.jpg',
+                    content_type: 'application/jpg'
                 )
                 render json: outing, status: :created
             else                #Custom Avatar

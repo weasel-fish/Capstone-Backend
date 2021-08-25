@@ -18,8 +18,8 @@ class UsersController < ApplicationController
         if user.valid?
             if params[:no_avatar]   #Default avatar
                 user.avatar.attach(
-                    io: File.open('./public/avatars/user.png'),
-                    filename: 'user.png',
+                    io: File.open('./public/avatars/profile.png'),
+                    filename: 'profile.png',
                     content_type: 'application/png'
                 )
                 session[:user_id] = user.id

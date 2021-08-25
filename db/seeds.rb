@@ -307,77 +307,77 @@ puts 'Outings and attendees done'
 
 
 puts 'Generating sightings'
-sighting1 = Sighting.create(animal_id: 13, outing_id:1)
+sighting1 = Sighting.create(animal_id: 13, outing_id: 1, environment: 'Feeding on pollen a flowering bush', weather_conditions: 'Mid-morning, cool and dewy', notes: '')
 sighting1.image.attach(
     io: File.open('./public/sighting_images/sweat_bee.jpg'),
     filename: 'sweat_bee.jpg',
     content_type: 'application/jpg'
 )
 
-sighting2 = Sighting.create(animal_id: 3, outing_id:1)
+sighting2 = Sighting.create(animal_id: 3, outing_id: 1, environment: 'Drinking nectar from a lavender plant', weather_conditions: 'Afternoon, mid-60s', notes: 'Stayed among the same plants for a while')
 sighting2.image.attach(
     io: File.open('./public/sighting_images/humbirdmoth.jpg'),
     filename: 'humbirdmoth.jpg',
     content_type: 'application/jpg'
 )
 
-sighting3 = Sighting.create(animal_id: 11, outing_id:1)
+sighting3 = Sighting.create(animal_id: 11, outing_id: 1, environment: 'High up on a tree trunk', weather_conditions: 'Afternoon, mid-60s', notes: 'It was still, possibly resting until the evening')
 sighting3.image.attach(
     io: File.open('./public/sighting_images/polyphemus.jpeg'),
     filename: 'polyphemus.jpeg',
     content_type: 'application/jpeg'
 )
 
-sighting4 = Sighting.create(animal_id: 2, outing_id:2)
+sighting4 = Sighting.create(animal_id: 2, outing_id: 2, environment: 'On the ground among some dead leaves next to a log', weather_conditions: 'Wet and drizzly', notes: 'It moved surprisingly quickly!')
 sighting4.image.attach(
     io: File.open('./public/sighting_images/bananaslug.jpg'),
     filename: 'bananaslug.jpg',
     content_type: 'application/jpg'
 )
 
-sighting5 = Sighting.create(animal_id: 4, outing_id:2)
+sighting5 = Sighting.create(animal_id: 4, outing_id: 2, environment: 'On a bush at hip height', weather_conditions: 'Wet and drizzly', notes: 'It stayed pretty still, probably sheltering from rain')
 sighting5.image.attach(
     io: File.open('./public/sighting_images/spicebush.jpeg'),
     filename: 'spicebush.jpeg',
     content_type: 'application/jpeg'
 )
 
-sighting6 = Sighting.create(animal_id: 6, outing_id:2)
-sighting6.image.attach(
+sighting6 = Sighting.create(animal_id: 6, outing_id: 2, environment: 'Roaming a few feet off the ground, doing circles', weather_conditions: 'Wet and drizzly', notes: 'Curious aboutour presence, but not bothered')
+sighting6.image.attach( 
     io: File.open('./public/sighting_images/cicadakiller.jpg'),
     filename: 'cicadakiller.jpg',
     content_type: 'application/jpg'
 )
 
-sighting7 = Sighting.create(animal_id: 9, outing_id:2)
+sighting7 = Sighting.create(animal_id: 9, outing_id: 2, environment: 'By the edge of a large pond', weather_conditions: 'Wet and drizzly', notes: 'Mostly stuck to one stick, would occasionally fly off for a bit and return.')
 sighting7.image.attach(
     io: File.open('./public/sighting_images/bluedasher.jpeg'),
     filename: 'bluedasher.jpeg',
     content_type: 'application/jpeg'
 )
 
-sighting8 = Sighting.create(animal_id: 1, outing_id:3)
+sighting8 = Sighting.create(animal_id: 1, outing_id: 3, environment: 'Inside an old hollowed out, fallen tree trunk', weather_conditions: 'Sunny, mid-day, dry', notes: 'Beautiful!')
 sighting8.image.attach(
     io: File.open('./public/sighting_images/medblackwidow.jpeg'),
     filename: 'medblackwidow.jpeg',
     content_type: 'application/jpeg'
 )
 
-sighting9 = Sighting.create(animal_id: 5, outing_id:3)
+sighting9 = Sighting.create(animal_id: 5, outing_id: 3, environment: 'On a leafy plant at shoulder height', weather_conditions: 'Sunny, mid-day, dry', notes: 'Was wiggling its butt up and down!')
 sighting9.image.attach(
     io: File.open('./public/sighting_images/ensignwasp.jpeg'),
     filename: 'ensignwasp.jpeg',
     content_type: 'application/jpeg'
 )
 
-sighting10 = Sighting.create(animal_id: 7, outing_id:3)
+sighting10 = Sighting.create(animal_id: 7, outing_id: 3, environment: '', weather_conditions: '', notes: '')
 sighting10.image.attach(
     io: File.open('./public/sighting_images/armyant.jpeg'),
     filename: 'armyant.jpeg',
     content_type: 'application/jpeg'
 )
 
-sighting11 = Sighting.create(animal_id: 8, outing_id:3)
+sighting11 = Sighting.create(animal_id: 8, outing_id: 3, environment: '', weather_conditions: '', notes: '')
 sighting11.image.attach(
     io: File.open('./public/sighting_images/stickinsect.jpeg'),
     filename: 'stickinsect.jpeg',

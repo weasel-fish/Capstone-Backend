@@ -19,9 +19,9 @@ class SightingsController < ApplicationController
             generate_alerts(sighting_params[:animal_id], sighting.id)
             if params[:no_image]   #Default image
                 sighting.image.attach(
-                    io: File.open('./public/avatars/user.png'),
-                    filename: 'user.png',
-                    content_type: 'application/png'
+                    io: File.open('./public/sighting_images/bug.jpg'),
+                    filename: 'bug.jpg',
+                    content_type: 'application/jpg'
                 )
                 render json: sighting, status: :created
             else    #custom image
